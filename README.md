@@ -1,14 +1,14 @@
-# STU3 project
-Welcome to FHIR STU3 sample project
+# R4 project
+Welcome to FHIR R4 sample project
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 *	Java 8
-*	Tomcat7 or 8
+*	Tomcat 8 or 9
 *	Postgres SQL DB 10.x
-*	Maven 3.3.X
+*	Maven 3.5.X
 
 ## Installing
 
@@ -21,18 +21,18 @@ $ git clone https://github.com/siteadmin/fhir-tools.git
 
 ### Postgres Configuration
 
-**Load STU3 schema and data**
+**Load R4 schema and data**
 
 Create the database by running the below command in command prompt
 
 ```
-$ createdb -h localhost -p 5432 -U postgres fhirdstu3
+$ createdb -h localhost -p 5432 -U postgres r4
 ```
 
-STU3 database file `fhir-stu3-db.backup` is located under root directory. Load schema and sample data using psql command
+R4 database file `fhir-R4-db.backup` is located under root directory. Load schema and sample data using psql command
 
 ```
-$ psql -U postgres -d fhirdstu3 -f fhir-stu3-db.backup 
+$ psql -U postgres -d r4 -f fhir-R4-db.backup 
 ```
 
 ### Tomcat Configuration 
@@ -42,7 +42,7 @@ $ psql -U postgres -d fhirdstu3 -f fhir-stu3-db.backup
 Open application.properties file under fhir-server/src/main/resources and change below properties and save the file. 
 
 ```  
-jdbc.url=jdbc:postgresql://localhost:5432/fhirdstu3
+jdbc.url=jdbc:postgresql://localhost:5432/R4
 jdbc.username=postgres
 jdbc.password=postgres
 ```
@@ -52,8 +52,8 @@ jdbc.password=postgres
 Open server.xml and add below two lines under `<host>` tag and save the file.
 
 ```
-<Context path="/open/stu3" docBase="./stu3"/>
-<Context path="/secure/stu3" docBase="./stu3"/>
+<Context path="/open/R4" docBase="./R4"/>
+<Context path="/secure/R4" docBase="./R4"/>
 ```
 
 ### Built Application 
@@ -66,8 +66,8 @@ This will generate a war file under target/{application-name}.war. Copy this to 
 **Start Tomcat service**
 
 ## Verification 
-Verify using Postman or equivalent tool by running various FHIR APIs on the STU3 server. 
+Verify using Postman or equivalent tool by running various FHIR APIs on the R4 server. 
 ```
-For example: http://localhost:<port>/open/stu3/fhir/Patient/1
+For example: http://localhost:<port>/open/R4/fhir/Patient/1
 ```
   
