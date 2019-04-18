@@ -26,13 +26,13 @@ $ git clone https://github.com/siteadmin/fhir-tools.git
 Create the database by running the below command in command prompt
 
 ```
-$ createdb -h localhost -p 5432 -U postgres r4
+$ createdb -h localhost -p 5432 -U postgres R4
 ```
 
 R4 database file `fhir-R4-db.backup` is located under root directory. Load schema and sample data using psql command
 
 ```
-$ psql -U postgres -d r4 -f fhir-R4-db.backup 
+$ psql -U postgres -d R4 -f fhir-R4-db.backup 
 ```
 
 ### Tomcat Configuration 
